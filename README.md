@@ -1,124 +1,54 @@
-# FPortFolio-52825Y Repository
+# FYvess Online Resume Portfolio 🌐
 
-FYvess Portfolio
-Welcome to my corner of the internet! This repository showcases my work, skills, and passion for DevSecOps, web development, and cybersecurity.
+Welcome to my personal online resume portfolio! This project is a responsive, animated website built to showcase my professional background, projects, certifications, and technical skills as a **Computer Engineering graduate** aspiring to become a **DevSecOps Specialist**.
 
-👋 About Me
-Hi, I'm Franco Yves P. De Santos (FYvess)! I am an aspiring DevSecOps Specialist with a strong interest in building secure, scalable solutions. I also have experience as a freelance web developer and graphic designer.
+## 📌 Features
 
-I thrive on solving challenging problems, learning new technologies, and ensuring that every solution I build is both innovative and secure. My goal is to create impactful digital experiences and derive actionable insights from data, always with a security-first mindset. I am currently based in the Philippines.
+- **Interactive Loader & Animations** using GSAP
+- **Hero Banner** with masked split-text animation
+- **Responsive Navigation** with smooth scrolling
+- **About Me** section with skill highlights and downloadable CV
+- **Portfolio Tabs** for:
+  - Projects (with GitHub links)
+  - Certifications
+  - Tech Stack
+- **Contact Section** with email and phone call buttons
+- **Modern UI/UX** using Bootstrap 5 and Font Awesome
+- **Fully Responsive Design**
 
-🛠️ Skills
-Here's a list of technologies and tools I'm proficient in:
+## 🚀 Live Demo
 
-Frontend:
+deployed. You can open `https://fyvess.github.io/` directly in your browser.
 
-JavaScript
+## 📂 Folder Structure
 
-React
+```
+.
+├── index.html
+├── asset/
+│   ├── img/               # Profile images & placeholders
+│   ├── cert/              # Certificate images
+│   ├── CARD/              # Resume card image
+│   └── js/                # Custom JS scripts (scroll.js, main.js)
+├── css/
+│   └── main.css           # Main stylesheet
+└── heroes_anim/
+    └── anim_Hero.js       # GSAP animation for hero section
+```
 
-Vue.js
+## 🛠️ Built With
 
-CSS3
+- HTML5
+- CSS3
+- JavaScript (vanilla)
+- [Bootstrap 5](https://getbootstrap.com/)
+- [GSAP 3](https://greensock.com/gsap/)
+- [Boxicons](https://boxicons.com/)
+- [Font Awesome](https://fontawesome.com/)
 
-HTML5
-
-Backend & DevOps:
-
-Node.js
-
-Python
-
-Docker
-
-AWS
-
-MongoDB
-
-Security & Tools:
-
-Security-First Development
-
-Git
-
-Linux
-
-Jenkins
-
-Monitoring
-
-🚀 Projects
-Here are some of the projects I've worked on. Click on the links to explore them further!
-
-E-commerce Platform
-Description: A fully responsive online store built with modern web technologies and secure payment integration.
-
-Technologies Used: [e.g., React, Node.js, MongoDB - You can fill this in with specific technologies used for this project]
-
-Features:
-
-Responsive design for various devices.
-
-Secure payment integration.
-
-[Add more specific features if known]
-
-Live Demo: [Link to live demo (if applicable)]
-
-Repository: [Link to project repository]
-
-DevSecOps Pipeline
-Description: Automated CI/CD pipeline with integrated security scanning and deployment automation.
-
-Technologies Used: [e.g., Jenkins, Docker, AWS, Security tools - You can fill this in with specific technologies used for this project]
-
-Features:
-
-Automated build and deployment.
-
-Integrated security scanning.
-
-Continuous integration and delivery.
-
-Live Demo: [Link to live demo (if applicable)]
-
-Repository: [Link to project repository]
-
-Security Monitoring Dashboard
-Description: Real-time security monitoring system with threat detection and automated response capabilities.
-
-Technologies Used: [e.g., Python, Monitoring tools, Database - You can fill this in with specific technologies used for this project]
-
-Features:
-
-Real-time threat detection.
-
-Automated response mechanisms.
-
-Centralized security insights.
-
-Live Demo: [Link to live demo (if applicable)]
-
-Repository: [Link to project repository]
-
-📜 Certificates
-CompTIA Security+: Certified in cybersecurity fundamentals and best practices for secure system administration.
-
-AWS Solutions Architect: Proficient in designing and deploying scalable, secure cloud infrastructure on AWS.
-
-Certified DevOps Engineer: Skilled in implementing DevOps practices and automation tools for efficient development workflows.
-
-📞 Get in Touch
-I'm always open to new opportunities and collaborations. Feel free to reach out!
-
-Email: franco.desantos@email.com
-
-Phone: +63 961 158 8400
-
-LinkedIn: [Link to your LinkedIn Profile]
-
-GitHub: [Link to your GitHub Profile]
-
-Twitter: [Link to your Twitter Profile]
-
-Thank you for visiting my portfolio!
+## 📇 Author
+**Franco Yves P. De Santos**
+- 📧 Email: [yvesdesantos@outlook.com](mailto:yvesdesantos@outlook.com)
+- 🌐 GitHub: [@FYvess](https://github.com/FYvess)
+- 🔗 LinkedIn: [@fyvess](https://www.linkedin.com/in/fyvess/)
+- 🎮 Discord: [Yavez](https://discordapp.com/users/640103641088393216)
