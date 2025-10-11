@@ -1,6 +1,6 @@
 # FYvess Online Resume Portfolio 🌐
 
-Welcome to my personal online resume portfolio! This project is a responsive, animated website built to showcase my professional background, projects, certifications, and technical skills as a **Computer Engineering graduate** aspiring to become a **DevSecOps Specialist**.
+Welcome to my personal online resume portfolio! This project is a responsive, animated website built to showcase my professional background, projects, certifications, and technical skills as a **Computer Engineering graduate** aspiring to become a **TECH DRIVEN ENTHUSIAST**.
 
 ## 📌 Features
 
