@@ -1,0 +1,265 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  margin-top: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  align-items: center;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImage {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--color-accent);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-medium);
+}
+
+.profileImage:hover {
+  transform: scale(1.05);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.name {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.typingContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+}
+
+.typing {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.cursor {
+  font-size: var(--font-size-2xl);
+  color: var(--color-accent);
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  transition: background-color var(--transition-fast), color var(--transition-fast),
+    transform var(--transition-fast);
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background-color: var(--color-accent);
+  color: var(--color-black);
+  transform: translateY(-4px);
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-medium);
+}
+
+.primaryButton {
+  background-color: var(--color-accent);
+  color: var(--color-black);
+}
+
+.primaryButton:hover {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--color-accent);
+}
+
+.secondaryButton:hover {
+  background-color: var(--color-accent);
+  color: var(--color-black);
+}
+
+.maskedTextContainer {
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 200px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.maskedSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.maskedText {
+  font-family: var(--font-family);
+  font-size: 120px;
+  font-weight: var(--font-weight-bold);
+  fill: currentColor;
+}
+
+.animatedRect {
+  animation: slideX 4s ease-in-out infinite;
+}
+
+@keyframes slideX {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .name {
+    font-size: var(--font-size-3xl);
+  }
+
+  .typing {
+    font-size: var(--font-size-xl);
+  }
+
+  .cursor {
+    font-size: var(--font-size-xl);
+  }
+
+  .profileImage {
+    width: 250px;
+    height: 250px;
+  }
+
+  .container {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+    margin-top: 80px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .profileImage {
+    width: 200px;
+    height: 200px;
+  }
+
+  .name {
+    font-size: var(--font-size-2xl);
+  }
+
+  .typing {
+    font-size: var(--font-size-lg);
+    min-height: auto;
+  }
+
+  .cursor {
+    font-size: var(--font-size-lg);
+  }
+
+  .description {
+    font-size: var(--font-size-base);
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

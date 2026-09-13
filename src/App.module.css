@@ -1,0 +1,13 @@
+.app {
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  color: #050505;
+  font-family: 'Poppins', sans-serif;
+}
+
+p {
+  color: #666;
+}

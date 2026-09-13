@@ -1,0 +1,189 @@
+import { useState, useEffect } from 'react';
+import {
+  GithubLogo,
+  LinkedinLogo,
+  DiscordLogo,
+  FacebookLogo,
+  ArrowRight,
+} from 'phosphor-react';
+import styles from './Hero.module.css';
+
+const ROLES = ['Full-Stack Developer', 'React Developer', 'TypeScript Engineer'];
+const TYPING_SPEED = 100; // ms per character
+const DELETE_SPEED = 50; // ms per character
+const PAUSE_DURATION = 2000; // ms between role cycles
+
+/**
+ * Hero Component - Landing section with typing animation and CTAs
+ * Requirements: 4.1-4.6
+ */
+export function Hero() {
+  const [currentRole, setCurrentRole] = useState('');
+  const [charIndex, setCharIndex] = useState(0);
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const role = ROLES[roleIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && charIndex < role.length) {
+      // Typing forward
+      timeout = setTimeout(() => {
+        setCurrentRole(role.substring(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+      }, TYPING_SPEED);
+    } else if (!isDeleting && charIndex === role.length) {
+      // Pause at end of role
+      timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, PAUSE_DURATION);
+    } else if (isDeleting && charIndex > 0) {
+      // Deleting
+      timeout = setTimeout(() => {
+        setCurrentRole(role.substring(0, charIndex - 1));
+        setCharIndex(charIndex - 1);
+      }, DELETE_SPEED);
+    } else if (isDeleting && charIndex === 0) {
+      // Move to next role
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % ROLES.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, roleIndex, isDeleting]);
+
+  const handleSmoothScroll = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const socials = [
+    {
+      name: 'GitHub',
+      icon: GithubLogo,
+      url: 'https://github.com/francoyves',
+      label: 'Visit my GitHub',
+    },
+    {
+      name: 'LinkedIn',
+      icon: LinkedinLogo,
+      url: 'https://linkedin.com/in/francoyves',
+      label: 'Connect on LinkedIn',
+    },
+    {
+      name: 'Discord',
+      icon: DiscordLogo,
+      url: 'https://discord.com/users/francoyves',
+      label: 'Join my Discord',
+    },
+    {
+      name: 'Facebook',
+      icon: FacebookLogo,
+      url: 'https://facebook.com/francoyves',
+      label: 'Follow on Facebook',
+    },
+  ];
+
+  return (
+    <section id="home" className={styles.hero}>
+      <div className={styles.container}>
+        {/* Profile Image */}
+        <div className={styles.imageWrapper}>
+          <img
+            src="/assets/img/profile.jpg"
+            alt="Franco Yves De Santos"
+            className={styles.profileImage}
+          />
+        </div>
+
+        {/* Content */}
+        <div className={styles.content}>
+          <h1 className={styles.name}>Franco Yves</h1>
+
+          {/* Typing Animation */}
+          <div className={styles.typingContainer}>
+            <span className={styles.typing}>{currentRole}</span>
+            <span className={styles.cursor}>|</span>
+          </div>
+
+          <p className={styles.description}>
+            Full-Stack Developer specializing in React, TypeScript, and modern
+            web technologies. Based in Cavite, Philippines.
+          </p>
+
+          {/* Social Links */}
+          <div className={styles.socials}>
+            {socials.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.socialLink}
+                  aria-label={social.label}
+                  title={social.label}
+                >
+                  <Icon size={24} weight="fill" />
+                </a>
+              );
+            })}
+          </div>
+
+          {/* CTA Buttons */}
+          <div className={styles.ctaButtons}>
+            <button
+              className={styles.primaryButton}
+              onClick={() => handleSmoothScroll('portfolio')}
+            >
+              View Projects
+              <ArrowRight size={20} weight="bold" />
+            </button>
+            <button
+              className={styles.secondaryButton}
+              onClick={() => handleSmoothScroll('contact')}
+            >
+              Contact Me
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* SVG Masked Text Animation */}
+      <div className={styles.maskedTextContainer}>
+        <svg className={styles.maskedSvg} viewBox="0 0 800 200">
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="var(--color-accent)" />
+              <stop offset="50%" stopColor="var(--color-text)" />
+              <stop offset="100%" stopColor="var(--color-accent)" />
+            </linearGradient>
+            <mask id="textMask">
+              <rect width="800" height="200" fill="white" />
+              <text
+                x="50%"
+                y="50%"
+                dominantBaseline="middle"
+                textAnchor="middle"
+                className={styles.maskedText}
+              >
+                Let's Build
+              </text>
+            </mask>
+          </defs>
+          <rect
+            width="800"
+            height="200"
+            fill="url(#gradient)"
+            mask="url(#textMask)"
+            className={styles.animatedRect}
+          />
+        </svg>
+      </div>
+    </section>
+  );
+}
