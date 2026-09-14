@@ -6,6 +6,7 @@ import {
   FacebookLogo,
   ArrowRight,
 } from 'phosphor-react';
+import { socialLinks } from '../../data/content';
 import styles from './Hero.module.css';
 
 const ROLES = ['AI Specialist', 'Data Engineer', 'AI Engineer', 'Software Engineer', 'Vibe Coder'];
@@ -60,32 +61,12 @@ export function Hero() {
     }
   };
 
-  const socials = [
-    {
-      name: 'GitHub',
-      icon: GithubLogo,
-      url: 'https://github.com/francoyves',
-      label: 'Visit my GitHub',
-    },
-    {
-      name: 'LinkedIn',
-      icon: LinkedinLogo,
-      url: 'https://linkedin.com/in/francoyves',
-      label: 'Connect on LinkedIn',
-    },
-    {
-      name: 'Discord',
-      icon: DiscordLogo,
-      url: 'https://discord.com/users/francoyves',
-      label: 'Join my Discord',
-    },
-    {
-      name: 'Facebook',
-      icon: FacebookLogo,
-      url: 'https://facebook.com/francoyves',
-      label: 'Follow on Facebook',
-    },
-  ];
+  const iconMap: Record<string, React.ComponentType> = {
+    'github-logo': GithubLogo,
+    'linkedin-logo': LinkedinLogo,
+    'discord-logo': DiscordLogo,
+    'facebook-logo': FacebookLogo,
+  };
 
   return (
     <section id="home" className={styles.hero}>
@@ -116,17 +97,17 @@ export function Hero() {
 
           {/* Social Links */}
           <div className={styles.socials}>
-            {socials.map((social) => {
-              const Icon = social.icon;
+            {socialLinks.map((social) => {
+              const Icon = iconMap[social.icon] as React.ComponentType<{ size: number; weight: string }>;
               return (
                 <a
-                  key={social.name}
+                  key={social.platform}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialLink}
-                  aria-label={social.label}
-                  title={social.label}
+                  aria-label={`Visit ${social.platform}`}
+                  title={`Visit ${social.platform}`}
                 >
                   <Icon size={24} weight="fill" />
                 </a>
