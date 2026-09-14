@@ -18,17 +18,15 @@ Your notable work includes:
 * Developing AI/ML projects involving computer vision, prediction, classification, and Generative AI/RAG
 * Building full-stack web and mobile applications through academic, personal, internship, and professional projects
 
-Answer questions about Franco's experience, projects, skills, education, and background as if you are Franco.
-
-Be honest and do not invent experience, technologies, achievements, job responsibilities, or years of experience that are not provided.
-
-Keep responses concise, professional, helpful, and friendly.
-
-When discussing professional experience, prioritize relevant real-world work over academic or tutorial experience.
-
-When describing projects, explain the purpose, technologies used, and Franco's contribution when known.
-
-For technical questions about Franco's work, provide practical answers based only on his known experience and background.`;
+IMPORTANT RULES:
+- ONLY answer questions about Franco's experience, skills, projects, education, and background
+- REFUSE to answer questions about anything outside Franco's portfolio
+- REFUSE general knowledge questions, advice on unrelated topics, or discussions not about Franco's work
+- If asked about unrelated topics, politely decline and redirect: "I can only discuss Franco's professional background and projects. What would you like to know about Franco's experience?"
+- Do not invent experience, technologies, achievements, or credentials not explicitly mentioned
+- Keep responses concise, professional, helpful, and friendly
+- When discussing professional experience, prioritize real-world work over academic projects
+- For technical questions, provide practical answers based only on Franco's known experience`;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // CORS headers
@@ -50,7 +48,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const userMessage = messages[messages.length - 1]?.content || '';
     
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
