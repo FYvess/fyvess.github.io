@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Download } from 'phosphor-react';
-import { skills, stats } from '../../data/content';
-import { getPhosphorIcon } from '../../utils/iconHelper';
+import { stats } from '../../data/content';
+//import { getPhosphorIcon } from '../../utils/iconHelper';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './About.module.css';
 
@@ -14,7 +14,7 @@ export function About() {
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const bioRef = useScrollReveal<HTMLDivElement>();
-  const skillsRef = useScrollReveal<HTMLDivElement>(0.05);
+  // const skillsRef = useScrollReveal<HTMLDivElement>(0.05);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,23 +90,10 @@ export function About() {
             </div>
           ))}
         </div>
-
+        
         {/* Skills */}
-        <div className={styles.skillsSection} ref={skillsRef}>
-          <h3 className={styles.subsectionTitle}>Skills & Technologies</h3>
-          <div className={styles.skillsGrid}>
-            {skills.map((skill) => {
-              const Icon = getPhosphorIcon(skill.icon);
-              return (
-                <div key={skill.name} className={styles.skillCard}>
-                  {Icon && <Icon size={32} weight="bold" />}
-                  <span>{skill.name}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
+    
+        
         {/* CV Download */}
         <div className={styles.cvSection}>
           <a

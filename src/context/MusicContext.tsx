@@ -1,5 +1,6 @@
-import { createContext, useContext, useEffect, useRef, ReactNode } from 'react';
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
+//import { useLocalStorage } from '../hooks/useLocalStorage';
 import type { MusicContextValue } from '../types';
 
 /**
@@ -19,7 +20,7 @@ import type { MusicContextValue } from '../types';
 const MusicContext = createContext<MusicContextValue | undefined>(undefined);
 
 export function MusicProvider({ children }: { children: ReactNode }) {
-  const [isPlaying, setIsPlaying] = useLocalStorage<boolean>('musicPlaying', true);
+  const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -33,9 +34,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     if (!audio) return;
 
     if (isPlaying) {
-      audio.muted = false;
       audio.play().catch(() => {
-        // Play failed, reset state
         setIsPlaying(false);
       });
     } else {
@@ -55,7 +54,6 @@ export function MusicProvider({ children }: { children: ReactNode }) {
         src="/assets/music/background.mp3"
         loop
         autoPlay
-        muted
         preload="auto"
       />
       {children}

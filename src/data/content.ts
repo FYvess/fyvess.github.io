@@ -20,23 +20,30 @@ import type {
 
 export const siteMetadata: SiteMetadata = {
   name: 'Franco Yves De Santos',
-  title: 'Franco Yves De Santos - Full-Stack Developer | Portfolio',
+  title: 'Franco Yves De Santos - Data & AI Engineer | Portfolio',
   description:
-    'Recent Computer Engineering graduate from Lyceum of the Philippines University. Full-Stack Developer specializing in web development, systems management, and cybersecurity. Based in Cavite, Philippines.',
+    'AI Specialist and Computer Engineering graduate building data pipelines, AI-enabled systems, analytics workflows, and software solutions. Experienced in Python, SQL, PostgreSQL, Oracle, ETL, unstructured data processing, and AI applications. Based in Cavite, Philippines.',
   location: 'Cavite, Philippines',
   email: 'yvesdesantos@outlook.com',
   phone: '+63 961 158 8400',
   keywords: [
-    'full-stack developer',
-    'react developer',
-    'typescript',
-    'web developer',
-    'cavite philippines',
+    'data engineer',
+    'AI engineer',
+    'AI specialist',
+    'data engineering',
+    'ETL',
+    'ELT',
+    'Python',
+    'SQL',
+    'PostgreSQL',
+    'Oracle',
+    'MSSQL',
+    'machine learning',
+    'Generative AI',
+    'RAG',
+    'semiconductor',
+    'Cavite Philippines',
     'portfolio',
-    'frontend development',
-    'backend development',
-    'computer engineering',
-    'cybersecurity',
   ],
   ogImage: '/assets/img/og-image.jpg',
 };
@@ -73,15 +80,15 @@ export const socialLinks: SocialLink[] = [
 // ============================================================================
 
 export const skills: Skill[] = [
-  { name: 'React', icon: 'react' },
-  { name: 'TypeScript', icon: 'file-ts' },
-  { name: 'JavaScript', icon: 'file-js' },
-  { name: 'Node.js', icon: 'node' },
-  { name: 'Express', icon: 'express' },
+  { name: 'Python', icon: 'file' },
+  { name: 'SQL', icon: 'database' },
   { name: 'PostgreSQL', icon: 'database' },
-  { name: 'MongoDB', icon: 'database' },
-  { name: 'CSS/Sass', icon: 'palette' },
-  { name: 'Git', icon: 'git-branch' },
+  { name: 'Oracle', icon: 'database' },
+  { name: 'ETL / Data Pipelines', icon: 'flow' },
+  { name: 'Generative AI', icon: 'robot' },
+  { name: 'RAG', icon: 'chat-circle' },
+  { name: 'Flask', icon: 'server' },
+  { name: 'React', icon: 'react' },
   { name: 'Docker', icon: 'docker' },
 ];
 
@@ -90,9 +97,9 @@ export const skills: Skill[] = [
 // ============================================================================
 
 export const stats: Stat[] = [
-  { label: 'Projects Completed', value: 7, suffix: '' },
+  { label: 'Projects Built', value: 7, suffix: '' },
   { label: 'Certificates Earned', value: 5, suffix: '' },
-  { label: 'Years of Experience', value: 1, suffix: '' },
+  { label: 'Professional Experience', value: 1, suffix: '' },
 ];
 
 // ============================================================================
@@ -176,33 +183,35 @@ export const certificates: Certificate[] = [
     id: 'cert-database',
     title: 'IT Specialist - Databases',
     issuer: 'Certiport',
-    description: 'Demonstrates foundational knowledge of designing and querying relational databases such as MySQL, Microsoft SQL Server, or Oracle.',
-    image: '/assets/cert/cert_img/cert-database.jpg',
+    date: '2024',
+    image: '/assets/cert/cert_img/CERTIPORT_DATABASE-1.png',
   },
   {
     id: 'cert-python',
     title: 'Python Essentials 1',
     issuer: 'Python Institute',
-    description: 'Knowledge of computer programming concepts, Python language syntax and semantics, with ability to accomplish coding tasks and resolve implementation challenges using Python Standard Library.',
-    image: '/assets/cert/cert_img/cert-python.jpg',
+    date: '2025',
+    image: '/assets/cert/cert_img/PythonEssentials1Update20250207-28-jh1c5j-1.png',
   },
   {
     id: 'cert-ai-bootcamp',
     title: '30 Projects in 30 Days AI Development Bootcamp',
     issuer: 'Tech Education Platform',
-    description: 'Skilled in implementing AI development practices and automation tools for efficient backend leveraging AI technologies.',
+    date: '2024',
     image: '/assets/cert/cert_img/ai-bootcamp.jpg',
   },
   {
     id: 'cert-devsecops',
     title: 'DevSecOps Certification',
     issuer: 'DevOps Institute',
+    date: '2024',
     image: '/assets/cert/cert_img/devsecops.jpg',
   },
   {
     id: 'cert-cybersecurity',
     title: 'Cybersecurity Bootcamp',
     issuer: 'Security Academy',
+    date: '2024',
     image: '/assets/cert/cert_img/cybersecurity.jpg',
   },
 ];
@@ -212,48 +221,46 @@ export const certificates: Certificate[] = [
 // ============================================================================
 
 export const techStack: TechStackItem[] = [
-  // Web Development - Frontend
+  // Data Engineering
+  { name: 'Python', category: 'Data Engineering', icon: 'file' },
+  { name: 'SQL', category: 'Data Engineering', icon: 'database' },
+  { name: 'PostgreSQL', category: 'Data Engineering', icon: 'database' },
+  { name: 'Oracle', category: 'Data Engineering', icon: 'database' },
+  { name: 'MS SQL Server', category: 'Data Engineering', icon: 'database' },
+  { name: 'ETL / ELT', category: 'Data Engineering', icon: 'flow' },
+
+  // AI / ML
+  { name: 'Generative AI', category: 'AI / ML', icon: 'robot' },
+  { name: 'RAG', category: 'AI / ML', icon: 'chat-circle' },
+  { name: 'OpenCV', category: 'AI / ML', icon: 'image' },
+  { name: 'Machine Learning', category: 'AI / ML', icon: 'brain' },
+  { name: 'YOLO', category: 'AI / ML', icon: 'image' },
+
+  // Backend
+  { name: 'Flask', category: 'Backend', icon: 'server' },
+  { name: 'Node.js', category: 'Backend', icon: 'node' },
+  { name: 'Express.js', category: 'Backend', icon: 'server' },
+  { name: 'REST API', category: 'Backend', icon: 'link' },
+
+  // Frontend
   { name: 'React', category: 'Frontend', icon: 'react' },
   { name: 'TypeScript', category: 'Frontend', icon: 'file-ts' },
   { name: 'JavaScript', category: 'Frontend', icon: 'file-js' },
   { name: 'HTML5', category: 'Frontend', icon: 'file-html' },
   { name: 'CSS3', category: 'Frontend', icon: 'palette' },
-  { name: 'EJS', category: 'Frontend', icon: 'file' },
 
-  // Web Development - Backend
-  { name: 'Node.js', category: 'Backend', icon: 'node' },
-  { name: 'Express.js', category: 'Backend', icon: 'server' },
-  { name: 'Python', category: 'Backend', icon: 'file' },
-  { name: 'Flask', category: 'Backend', icon: 'server' },
-
-  // Databases
-  { name: 'MySQL', category: 'Database', icon: 'database' },
-  { name: 'PostgreSQL', category: 'Database', icon: 'database' },
-  { name: 'MongoDB', category: 'Database', icon: 'database' },
-
-  // APIs
-  { name: 'REST API', category: 'API', icon: 'link' },
-  { name: 'Postman', category: 'API', icon: 'plug' },
-
-  // Software Development
+  // Software
   { name: 'Java', category: 'Software', icon: 'file' },
   { name: 'Kotlin', category: 'Software', icon: 'file' },
   { name: 'C++', category: 'Software', icon: 'file' },
   { name: 'C#', category: 'Software', icon: 'file' },
-  { name: 'Android Studio', category: 'Software', icon: 'smartphone' },
 
-  // ML & Computer Vision
-  { name: 'OpenCV', category: 'ML', icon: 'image' },
-  { name: 'Tkinter', category: 'ML', icon: 'window' },
-
-  // Tools & DevOps
+  // DevOps & Tools
   { name: 'Git', category: 'Tools', icon: 'git-branch' },
   { name: 'GitHub', category: 'Tools', icon: 'github-logo' },
-  { name: 'Bootstrap', category: 'Tools', icon: 'grid-four' },
-  { name: 'Bash scripting', category: 'Tools', icon: 'terminal' },
-  { name: 'Vite', category: 'Tools', icon: 'lightning' },
   { name: 'Docker', category: 'DevOps', icon: 'docker' },
-  { name: 'AWS', category: 'DevOps', icon: 'cloud' },
+  { name: 'AWS', category: 'Cloud', icon: 'cloud' },
+  { name: 'Bash', category: 'Tools', icon: 'terminal' },
 ];
 
 // ============================================================================
@@ -261,14 +268,14 @@ export const techStack: TechStackItem[] = [
 // ============================================================================
 
 export const marqueeTools: MarqueeItem[] = [
+  { name: 'Python', icon: 'file' },
+  { name: 'PostgreSQL', icon: 'database' },
+  { name: 'Oracle', icon: 'database' },
+  { name: 'SQL', icon: 'database' },
+  { name: 'React', icon: 'react' },
+  { name: 'Docker', icon: 'docker' },
+  { name: 'Git', icon: 'git-branch' },
   { name: 'Claude', icon: 'robot' },
   { name: 'ChatGPT', icon: 'chat-circle' },
   { name: 'GitHub Copilot', icon: 'copilot' },
-  { name: 'Power Automate', icon: 'flow' },
-  { name: 'MS Fabric', icon: 'grid-four' },
-  { name: 'VS Code', icon: 'code' },
-  { name: 'Docker', icon: 'docker' },
-  { name: 'Vercel', icon: 'rocket' },
-  { name: 'AWS', icon: 'cloud' },
-  { name: 'MongoDB Atlas', icon: 'database' },
 ];

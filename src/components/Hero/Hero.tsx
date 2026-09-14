@@ -8,7 +8,7 @@ import {
 } from 'phosphor-react';
 import styles from './Hero.module.css';
 
-const ROLES = ['Full-Stack Developer', 'React Developer', 'TypeScript Engineer'];
+const ROLES = ['AI Specialist', 'Data Engineer', 'AI Engineer', 'Software Engineer', 'Vibe Coder'];
 const TYPING_SPEED = 100; // ms per character
 const DELETE_SPEED = 50; // ms per character
 const PAUSE_DURATION = 2000; // ms between role cycles
