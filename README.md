@@ -25,106 +25,55 @@ A modern, animated TypeScript React portfolio featuring an AI chatbot powered by
 - Vercel account (free tier works)
 - GitHub account
 
-### Step-by-Step Setup
+### Quick Setup Flow
 
-#### 1. Clone and Install Dependencies
+#### 1. Clone & Install
 
 ```bash
-# Clone the repository
 git clone https://github.com/yourusername/fyvess.github.io.git
 cd fyvess.github.io
-
-# Install all dependencies
 npm install
-
-# Install missing type definitions (if needed)
-npm install --save-dev @types/node
 ```
 
 #### 2. Customize Your Content
 
-Edit `src/data/content.ts` to add your information:
-- Personal details (name, email, phone, location)
-- Social media links
-- Skills and statistics
-- Projects with descriptions and links
-- Certificates
-- Tech stack
+Edit `src/data/content.ts` with your info (name, email, projects, skills, etc.)
 
 Replace images in `public/assets/`:
-- `img/profile.jpg` - Your profile photo
-- `cv/resume.pdf` - Your CV/resume
+- `img/me.jpg` - Your profile photo
 - `projects/*` - Your project screenshots
-- `cert/*` - Your certificate images
+- `cert/*` - Your certificates
 
-#### 3. Local Development (Optional - Frontend Only)
-
-```bash
-# Start development server
-npm run dev
-
-# Open browser to http://localhost:5173
-```
-
-**Note:** Chatbot won't work locally without backend setup. See step 4 for full setup.
-
-#### 4. Deploy Backend to Vercel (Required for Chatbot)
+#### 3. Deploy Backend to Vercel (for chatbot)
 
 ```bash
-# Install Vercel CLI globally
 npm install -g vercel
-
-# Login to Vercel
 vercel login
-
-# Deploy backend
 vercel deploy
-
-# Follow prompts:
-# - Link to existing project or create new
-# - Set project name
-# - Deploy to production: vercel --prod
+vercel --prod
 ```
 
-**Set Environment Variables in Vercel Dashboard:**
+**After deploy, go to Vercel Dashboard:**
+1. Select your project → Settings → Environment Variables
+2. Add:
+   - `GEMINI_API_KEY` = your key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+   - `ALLOWED_ORIGIN` = `https://yourusername.github.io`
+3. Run `vercel --prod` again to apply variables
 
-1. Go to [vercel.com/dashboard](https://vercel.com/dashboard)
-2. Select your project
-3. Go to Settings → Environment Variables
-4. Add these variables:
-   - `GEMINI_API_KEY` = Your Gemini API key from Google AI Studio
-   - `ALLOWED_ORIGIN` = `https://yourusername.github.io` (replace with your GitHub Pages URL)
+**Copy your Vercel URL** (e.g., `https://my-app.vercel.app`)
 
-5. Redeploy: `vercel --prod` to apply environment variables
+#### 4. Configure Frontend
 
-**Copy your Vercel backend URL** (e.g., `https://your-project.vercel.app`)
-
-#### 5. Configure Frontend to Connect to Backend
-
-Create `.env.local` file in project root:
-
-```bash
-# .env.local (do NOT commit this file)
-VITE_API_URL=https://your-project.vercel.app
+Create `.env.local` in project root:
+```
+VITE_API_URL=https://my-app.vercel.app
 ```
 
-Replace `your-project.vercel.app` with your actual Vercel backend URL from step 4.
+#### 5. Deploy Frontend to GitHub Pages
 
-#### 6. Build for Production
+**Method A: GitHub Actions (Recommended - Auto-Deploy)**
 
-```bash
-# Build the frontend
-npm run build
-
-# This creates a dist/ folder with optimized production files
-```
-
-#### 7. Deploy Frontend to GitHub Pages
-
-**Option A: Using GitHub Actions (Recommended)**
-
-1. Create `.github/workflows/deploy.yml`:
-
+Create `.github/workflows/deploy.yml`:
 ```yaml
 name: Deploy to GitHub Pages
 
@@ -165,60 +114,34 @@ jobs:
         uses: actions/deploy-pages@v1
 ```
 
-2. Add `VITE_API_URL` secret in GitHub:
-   - Go to repository Settings → Secrets and variables → Actions
-   - Add new secret: `VITE_API_URL` = your Vercel backend URL
+Then:
+1. Go to GitHub repo Settings → Secrets and variables → Actions
+2. Create secret: `VITE_API_URL` = your Vercel URL
+3. Go to Settings → Pages → Source: **GitHub Actions**
+4. Push to main - done! Auto-deploys on every push.
 
-3. Enable GitHub Pages in repository settings:
-   - Settings → Pages
-   - Source: GitHub Actions
-
-4. Push to main branch - automatic deployment!
-
-**Option B: Manual Deployment**
-
+**Method B: Manual Deploy**
 ```bash
-# Build the project
 npm run build
-
-# Install gh-pages
 npm install -g gh-pages
-
-# Deploy to gh-pages branch
 gh-pages -d dist
 ```
+Then Settings → Pages → Source: **gh-pages branch**
 
-Enable GitHub Pages in repository settings (Settings → Pages → Source: gh-pages branch).
+### Verify It Works
 
-### Verify Deployment
-
-1. Visit your GitHub Pages URL: `https://yourusername.github.io`
-2. Test all features:
-   - Theme toggle (dark/light mode)
-   - Music toggle
-   - Smooth scrolling navigation
-   - Portfolio tabs
-   - **Chatbot** (click floating button, send a message)
-   - CV download
-   - All links
+1. Visit `https://yourusername.github.io`
+2. Test: theme toggle, music, chatbot, navigation
+3. Open browser console (F12) for any errors
 
 ### Troubleshooting
 
-**Chatbot not responding?**
-- Check Vercel deployment logs
-- Verify `GEMINI_API_KEY` is set in Vercel dashboard
-- Verify `ALLOWED_ORIGIN` matches your GitHub Pages URL exactly
-- Check browser console for CORS errors
-
-**Build failing?**
-- Run `npm install --save-dev @types/node` to fix TypeScript errors
-- Check Node.js version (needs 16+)
-- Clear node_modules and reinstall: `rm -rf node_modules && npm install`
-
-**Images not loading?**
-- Check file paths in `src/data/content.ts`
-- Verify images exist in `public/assets/`
-- Check browser console for 404 errors
+| Issue | Fix |
+|-------|-----|
+| **Chatbot not working** | Check Vercel logs, verify `GEMINI_API_KEY` is set, check `ALLOWED_ORIGIN` matches your GitHub URL exactly |
+| **Build fails** | Run `npm install` again, check Node.js version (16+) |
+| **Images not loading** | Verify file paths in `src/data/content.ts`, check `public/assets/` folder exists |
+| **Theme not persisting** | localStorage is working — close/reopen browser to test |
 
 ## 🏗️ Architecture
 
