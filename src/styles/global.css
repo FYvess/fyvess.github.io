@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 @import './tokens.css';
 
 * {
@@ -12,8 +13,7 @@ html {
 }
 
 body {
-  font-family: var(--font-family), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-bg);
@@ -27,32 +27,18 @@ body {
   min-height: 100vh;
 }
 
-/* Base typography */
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-weight-bold);
   line-height: 1.2;
   margin-bottom: var(--space-md);
 }
 
-h1 {
-  font-size: var(--font-size-4xl);
-}
+h1 { font-size: var(--font-size-5xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
 
-h2 {
-  font-size: var(--font-size-3xl);
-}
-
-h3 {
-  font-size: var(--font-size-2xl);
-}
-
-h4 {
-  font-size: var(--font-size-xl);
-}
-
-p {
-  margin-bottom: var(--space-md);
-}
+p { margin-bottom: var(--space-md); }
 
 button {
   cursor: pointer;
@@ -67,7 +53,6 @@ a {
   text-decoration: none;
 }
 
-/* Focus styles for accessibility */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
@@ -76,8 +61,28 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
-/* Smooth theme transitions */
 html[data-theme] {
   transition: background-color var(--transition-medium), color var(--transition-medium);
 }
 
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}

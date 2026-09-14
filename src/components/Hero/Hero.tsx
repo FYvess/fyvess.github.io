@@ -93,7 +93,7 @@ export function Hero() {
         {/* Profile Image */}
         <div className={styles.imageWrapper}>
           <img
-            src="/assets/img/profile.jpg"
+            src="/assets/img/me.jpg"
             alt="Franco Yves De Santos"
             className={styles.profileImage}
           />
@@ -153,37 +153,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* SVG Masked Text Animation */}
-      <div className={styles.maskedTextContainer}>
-        <svg className={styles.maskedSvg} viewBox="0 0 800 200">
-          <defs>
-            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="var(--color-accent)" />
-              <stop offset="50%" stopColor="var(--color-text)" />
-              <stop offset="100%" stopColor="var(--color-accent)" />
-            </linearGradient>
-            <mask id="textMask">
-              <rect width="800" height="200" fill="white" />
-              <text
-                x="50%"
-                y="50%"
-                dominantBaseline="middle"
-                textAnchor="middle"
-                className={styles.maskedText}
-              >
-                Let's Build
-              </text>
-            </mask>
-          </defs>
-          <rect
-            width="800"
-            height="200"
-            fill="url(#gradient)"
-            mask="url(#textMask)"
-            className={styles.animatedRect}
-          />
-        </svg>
-      </div>
     </section>
   );
 }

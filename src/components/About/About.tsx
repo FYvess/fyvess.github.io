@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Download } from 'phosphor-react';
 import { skills, stats } from '../../data/content';
 import { getPhosphorIcon } from '../../utils/iconHelper';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './About.module.css';
 
 /**
@@ -12,6 +13,8 @@ export function About() {
   const [displayStats, setDisplayStats] = useState<number[]>(stats.map(() => 0));
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const bioRef = useScrollReveal<HTMLDivElement>();
+  const skillsRef = useScrollReveal<HTMLDivElement>(0.05);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,7 +62,7 @@ export function About() {
         <h2 className={styles.sectionTitle}>About Me</h2>
 
         {/* Biography */}
-        <div className={styles.biography}>
+        <div className={styles.biography} ref={bioRef}>
           <p>
             I'm a full-stack developer with a passion for building modern web
             applications using React and TypeScript. With experience spanning
@@ -89,7 +92,7 @@ export function About() {
         </div>
 
         {/* Skills */}
-        <div className={styles.skillsSection}>
+        <div className={styles.skillsSection} ref={skillsRef}>
           <h3 className={styles.subsectionTitle}>Skills & Technologies</h3>
           <div className={styles.skillsGrid}>
             {skills.map((skill) => {

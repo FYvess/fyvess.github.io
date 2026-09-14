@@ -1,5 +1,6 @@
 import { ThemeProvider } from './context/ThemeContext';
 import { MusicProvider } from './context/MusicContext';
+import { IntroLoader } from './components/IntroLoader/IntroLoader';
 import { Navigation } from './components/Navigation/Navigation';
 import { Hero } from './components/Hero/Hero';
 import { About } from './components/About/About';
@@ -15,12 +16,13 @@ function App() {
   return (
     <ThemeProvider>
       <MusicProvider>
+        <IntroLoader />
         <Navigation />
         <main>
           <Hero />
+          <Marquee items={marqueeTools} />
           <About />
           <Portfolio />
-          <Marquee items={marqueeTools} />
           <Contact />
         </main>
         <Footer />

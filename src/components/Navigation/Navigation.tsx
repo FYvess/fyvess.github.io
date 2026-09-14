@@ -14,7 +14,7 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { isPlaying, toggleMusic } = useMusic();
-  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   const sectionIds = ['home', 'about', 'portfolio', 'contact'];
   const activeSection = useScrollSpy(sectionIds);
@@ -44,7 +44,7 @@ export function Navigation() {
             onClick={() => handleSmoothScroll('home')}
             aria-label="Franco Yves"
           >
-            FY
+            FYvess
           </button>
         </div>
 

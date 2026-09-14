@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { CaretRight } from 'phosphor-react';
 import { projects, certificates, techStack } from '../../data/content';
 import { getPhosphorIcon } from '../../utils/iconHelper';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './Portfolio.module.css';
 
 type TabType = 'projects' | 'certificates' | 'techstack';
@@ -13,6 +14,8 @@ type TabType = 'projects' | 'certificates' | 'techstack';
 export function Portfolio() {
   const [activeTab, setActiveTab] = useState<TabType>('projects');
   const scrollRef = useRef<HTMLDivElement>(null);
+  const titleRef = useScrollReveal<HTMLHeadingElement>();
+  const contentRef = useScrollReveal<HTMLDivElement>(0.05);
 
   // Preserve scroll position on tab switch by scrolling to top of content
   const handleTabChange = (tab: TabType) => {
@@ -31,10 +34,10 @@ export function Portfolio() {
   return (
     <section id="portfolio" className={styles.portfolio}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Portfolio</h2>
+        <h2 className={styles.sectionTitle} ref={titleRef}>Portfolio</h2>
 
         {/* Tab Buttons */}
-        <div className={styles.tabButtons}>
+        <div className={styles.tabButtons} ref={contentRef}>
           {tabs.map((tab) => (
             <button
               key={tab.id}

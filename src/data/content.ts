@@ -22,10 +22,10 @@ export const siteMetadata: SiteMetadata = {
   name: 'Franco Yves De Santos',
   title: 'Franco Yves De Santos - Full-Stack Developer | Portfolio',
   description:
-    'Full-Stack Developer specializing in React, TypeScript, and modern web technologies. Based in Cavite, Philippines.',
+    'Recent Computer Engineering graduate from Lyceum of the Philippines University. Full-Stack Developer specializing in web development, systems management, and cybersecurity. Based in Cavite, Philippines.',
   location: 'Cavite, Philippines',
-  email: 'franco.desantos@example.com',
-  phone: '+63 (XXX) XXX-XXXX',
+  email: 'yvesdesantos@outlook.com',
+  phone: '+63 961 158 8400',
   keywords: [
     'full-stack developer',
     'react developer',
@@ -35,6 +35,8 @@ export const siteMetadata: SiteMetadata = {
     'portfolio',
     'frontend development',
     'backend development',
+    'computer engineering',
+    'cybersecurity',
   ],
   ogImage: '/assets/img/og-image.jpg',
 };
@@ -46,22 +48,22 @@ export const siteMetadata: SiteMetadata = {
 export const socialLinks: SocialLink[] = [
   {
     platform: 'GitHub',
-    url: 'https://github.com/francoyves',
+    url: 'https://github.com/FYvess',
     icon: 'github-logo',
   },
   {
     platform: 'LinkedIn',
-    url: 'https://linkedin.com/in/francoyves',
+    url: 'https://www.linkedin.com/in/fyvess/',
     icon: 'linkedin-logo',
   },
   {
     platform: 'Discord',
-    url: 'https://discord.com/users/francoyves',
+    url: 'https://discordapp.com/users/640103641088393216',
     icon: 'discord-logo',
   },
   {
     platform: 'Facebook',
-    url: 'https://facebook.com/francoyves',
+    url: 'https://www.facebook.com/francoyves.desantos.33/',
     icon: 'facebook-logo',
   },
 ];
@@ -88,9 +90,9 @@ export const skills: Skill[] = [
 // ============================================================================
 
 export const stats: Stat[] = [
-  { label: 'Projects Completed', value: 15, suffix: '+' },
-  { label: 'Certificates Earned', value: 8 },
-  { label: 'Years of Experience', value: 3, suffix: '+' },
+  { label: 'Projects Completed', value: 7, suffix: '' },
+  { label: 'Certificates Earned', value: 5, suffix: '' },
+  { label: 'Years of Experience', value: 1, suffix: '' },
 ];
 
 // ============================================================================
@@ -100,73 +102,68 @@ export const stats: Stat[] = [
 export const projects: Project[] = [
   {
     id: 'portfolio-latest',
-    title: 'Latest Portfolio',
+    title: 'This Portfolio',
     description:
-      'Modern, responsive portfolio website showcasing projects and skills with smooth animations and dark/light theme support.',
-    image: '/assets/projects/portfolio.jpg',
+      'My current portfolio built with React, TypeScript, and modern web technologies featuring glassmorphism design, dark theme, and smooth scroll animations.',
+    image: '/assets/projects/portfolio.png',
     technologies: ['React', 'TypeScript', 'CSS Modules', 'Vite'],
     liveLink: 'https://francoyves.github.io',
-    githubLink: 'https://github.com/francoyves/portfolio',
+    githubLink: 'https://github.com/FYvess/fyvess.github.io',
   },
   {
-    id: 'blog-site',
-    title: 'Blog Platform',
+    id: 'thesis-project',
+    title: 'Thesis Prototype: Egg Sorter',
     description:
-      'Full-stack blog platform with user authentication, article management, and comment system built with React and Node.js.',
-    image: '/assets/projects/blogsite.jpg',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
-    liveLink: 'https://blog-platform-demo.vercel.app',
-    githubLink: 'https://github.com/francoyves/blog-platform',
+      'Flask, Tkinter, and OpenCV-based Egg Sorter with GUI, designed to automate egg sorting using image processing and machine learning techniques.',
+    image: '/assets/projects/thesis.png',
+    technologies: ['Python', 'Flask', 'OpenCV', 'Tkinter', 'Machine Learning'],
+    githubLink: 'https://github.com/FYvess/THESIS-EGGSORTER',
   },
   {
     id: 'resume-card',
-    title: 'Resume Card Generator',
+    title: 'ResumeCard - Client Project',
     description:
-      'Interactive tool for creating and previewing resume cards with customizable templates and real-time export to PDF.',
-    image: '/assets/projects/resumecard.jpg',
-    technologies: ['React', 'TypeScript', 'PDF.js', 'Tailwind CSS'],
-    liveLink: 'https://resume-card-generator.vercel.app',
-    githubLink: 'https://github.com/francoyves/resume-card-generator',
+      'First freelance client project: a portfolio with integrated ChatBot built with HTML, CSS, and JavaScript to showcase professional presence.',
+    image: '/assets/projects/resumecard.png',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'ChatBot'],
+    githubLink: 'https://github.com/FYvess/BusinessCard-Portfolio',
+  },
+  {
+    id: 'todo-list',
+    title: 'To-do List App',
+    description:
+      'Developed during Express.js study, this grocery list application with cost computation. Originally built with EJS and Express.js, converted to static HTML using AI.',
+    image: '/assets/projects/todolist.png',
+    technologies: ['EJS', 'Express.js', 'Node.js', 'HTML5'],
+    liveLink: 'https://fyvess.github.io/TODO-LIST/',
+    githubLink: 'https://github.com/FYvess/TODO-LIST',
+  },
+  {
+    id: 'blog-site',
+    title: 'BlogSite',
+    description:
+      'Desktop-inspired web application that lets you showcase your personal brand, blending creativity and technology with clean, modern design.',
+    image: '/assets/projects/blogsite.png',
+    technologies: ['HTML5', 'CSS3', 'JavaScript'],
+    githubLink: 'https://github.com/FYvess/BLOGSITEv2-static',
+  },
+  {
+    id: 'time-motion',
+    title: 'Time & Motion Study App',
+    description:
+      'Mobile app developed during internship that increases productivity by turning traditional data collection into a tap-and-go experience for field teams.',
+    image: '/assets/projects/timeandmotion.png',
+    technologies: ['Java', 'Kotlin', 'Android Studio'],
+    githubLink: 'https://github.com/FYvess/TMSCApp',
   },
   {
     id: 'simon-game',
     title: 'Simon Game',
     description:
-      'Classic Simon Says game implementation with progressive difficulty levels, visual feedback, and score tracking.',
-    image: '/assets/projects/simongame.jpg',
+      'Classic Simon Says game implementation with progressive difficulty levels, visual feedback, and score tracking for interactive learning.',
+    image: '/assets/projects/simongame.png',
     technologies: ['JavaScript', 'HTML5', 'CSS3', 'Web Audio API'],
-    liveLink: 'https://simon-game-demo.vercel.app',
-    githubLink: 'https://github.com/francoyves/simon-game',
-  },
-  {
-    id: 'todo-list',
-    title: 'Todo List App',
-    description:
-      'Feature-rich todo application with task prioritization, due dates, categories, and local storage persistence.',
-    image: '/assets/projects/todolist.jpg',
-    technologies: ['React', 'Context API', 'Local Storage', 'CSS Modules'],
-    liveLink: 'https://todo-list-app-demo.vercel.app',
-    githubLink: 'https://github.com/francoyves/todo-list-app',
-  },
-  {
-    id: 'thesis-project',
-    title: 'Thesis Project: Performance Analyzer',
-    description:
-      'Web application for analyzing and visualizing performance metrics with data visualization and real-time updates.',
-    image: '/assets/projects/thesis.jpg',
-    technologies: ['React', 'Chart.js', 'API Integration', 'Real-time Data'],
-    liveLink: 'https://thesis-analyzer-demo.vercel.app',
-    githubLink: 'https://github.com/francoyves/thesis-project',
-  },
-  {
-    id: 'time-motion',
-    title: 'Time & Motion Study Tool',
-    description:
-      'Application for conducting time and motion studies with data recording, analysis, and report generation capabilities.',
-    image: '/assets/projects/timeandmotion.jpg',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Charts'],
-    liveLink: 'https://time-motion-study.vercel.app',
-    githubLink: 'https://github.com/francoyves/time-motion-tool',
+    githubLink: 'https://github.com/FYvess/simon-game',
   },
 ];
 
@@ -176,60 +173,37 @@ export const projects: Project[] = [
 
 export const certificates: Certificate[] = [
   {
+    id: 'cert-database',
+    title: 'IT Specialist - Databases',
+    issuer: 'Certiport',
+    description: 'Demonstrates foundational knowledge of designing and querying relational databases such as MySQL, Microsoft SQL Server, or Oracle.',
+    image: '/assets/cert/cert_img/cert-database.jpg',
+  },
+  {
+    id: 'cert-python',
+    title: 'Python Essentials 1',
+    issuer: 'Python Institute',
+    description: 'Knowledge of computer programming concepts, Python language syntax and semantics, with ability to accomplish coding tasks and resolve implementation challenges using Python Standard Library.',
+    image: '/assets/cert/cert_img/cert-python.jpg',
+  },
+  {
     id: 'cert-ai-bootcamp',
     title: '30 Projects in 30 Days AI Development Bootcamp',
     issuer: 'Tech Education Platform',
-    date: 'December 2024',
+    description: 'Skilled in implementing AI development practices and automation tools for efficient backend leveraging AI technologies.',
     image: '/assets/cert/cert_img/ai-bootcamp.jpg',
-    credentialUrl: 'https://credentials.tech/ai-bootcamp-2024',
   },
   {
-    id: 'cert-devops',
+    id: 'cert-devsecops',
     title: 'DevSecOps Certification',
     issuer: 'DevOps Institute',
-    date: 'November 2024',
     image: '/assets/cert/cert_img/devsecops.jpg',
-    credentialUrl: 'https://credentials.devops/devsecops-2024',
   },
   {
     id: 'cert-cybersecurity',
     title: 'Cybersecurity Bootcamp',
     issuer: 'Security Academy',
-    date: 'October 2024',
     image: '/assets/cert/cert_img/cybersecurity.jpg',
-    credentialUrl: 'https://credentials.security/cybersecurity-bootcamp',
-  },
-  {
-    id: 'cert-python',
-    title: 'Python Essentials 1 - Programming Basics',
-    issuer: 'Cisco Networking Academy',
-    date: 'September 2024',
-    image: '/assets/cert/cert_img/python-essentials.jpg',
-    credentialUrl: 'https://credentials.cisco/python-essentials',
-  },
-  {
-    id: 'cert-partyrock',
-    title: 'PartyRock by AWS - Generative AI Workshop',
-    issuer: 'Amazon Web Services',
-    date: 'August 2024',
-    image: '/assets/cert/cert_img/partyrock-aws.jpg',
-    credentialUrl: 'https://credentials.aws/partyrock-workshop',
-  },
-  {
-    id: 'cert-database',
-    title: 'Database Administration Certification',
-    issuer: 'CERTIPORT',
-    date: 'July 2024',
-    image: '/assets/cert/cert_img/database-admin.jpg',
-    credentialUrl: 'https://certiport.com/database-admin-2024',
-  },
-  {
-    id: 'cert-udemy-sales',
-    title: 'Udemy: Professional Selling Skills',
-    issuer: 'Udemy',
-    date: 'June 2024',
-    image: '/assets/cert/cert_img/udemy-selling.jpg',
-    credentialUrl: 'https://udemy.com/certificate/selling-skills-2024',
   },
 ];
 
@@ -238,37 +212,48 @@ export const certificates: Certificate[] = [
 // ============================================================================
 
 export const techStack: TechStackItem[] = [
-  // Frontend
+  // Web Development - Frontend
   { name: 'React', category: 'Frontend', icon: 'react' },
   { name: 'TypeScript', category: 'Frontend', icon: 'file-ts' },
   { name: 'JavaScript', category: 'Frontend', icon: 'file-js' },
   { name: 'HTML5', category: 'Frontend', icon: 'file-html' },
   { name: 'CSS3', category: 'Frontend', icon: 'palette' },
-  { name: 'Tailwind CSS', category: 'Frontend', icon: 'palette' },
-  { name: 'Vite', category: 'Frontend', icon: 'lightning' },
+  { name: 'EJS', category: 'Frontend', icon: 'file' },
 
-  // Backend
+  // Web Development - Backend
   { name: 'Node.js', category: 'Backend', icon: 'node' },
-  { name: 'Express', category: 'Backend', icon: 'server' },
+  { name: 'Express.js', category: 'Backend', icon: 'server' },
   { name: 'Python', category: 'Backend', icon: 'file' },
+  { name: 'Flask', category: 'Backend', icon: 'server' },
 
   // Databases
+  { name: 'MySQL', category: 'Database', icon: 'database' },
   { name: 'PostgreSQL', category: 'Database', icon: 'database' },
   { name: 'MongoDB', category: 'Database', icon: 'database' },
-  { name: 'Firebase', category: 'Database', icon: 'database' },
+
+  // APIs
+  { name: 'REST API', category: 'API', icon: 'link' },
+  { name: 'Postman', category: 'API', icon: 'plug' },
+
+  // Software Development
+  { name: 'Java', category: 'Software', icon: 'file' },
+  { name: 'Kotlin', category: 'Software', icon: 'file' },
+  { name: 'C++', category: 'Software', icon: 'file' },
+  { name: 'C#', category: 'Software', icon: 'file' },
+  { name: 'Android Studio', category: 'Software', icon: 'smartphone' },
+
+  // ML & Computer Vision
+  { name: 'OpenCV', category: 'ML', icon: 'image' },
+  { name: 'Tkinter', category: 'ML', icon: 'window' },
 
   // Tools & DevOps
   { name: 'Git', category: 'Tools', icon: 'git-branch' },
   { name: 'GitHub', category: 'Tools', icon: 'github-logo' },
-  { name: 'Docker', category: 'Tools', icon: 'docker' },
-  { name: 'VS Code', category: 'Tools', icon: 'code' },
-  { name: 'Vercel', category: 'DevOps', icon: 'rocket' },
+  { name: 'Bootstrap', category: 'Tools', icon: 'grid-four' },
+  { name: 'Bash scripting', category: 'Tools', icon: 'terminal' },
+  { name: 'Vite', category: 'Tools', icon: 'lightning' },
+  { name: 'Docker', category: 'DevOps', icon: 'docker' },
   { name: 'AWS', category: 'DevOps', icon: 'cloud' },
-
-  // Testing
-  { name: 'Vitest', category: 'Testing', icon: 'check' },
-  { name: 'Jest', category: 'Testing', icon: 'check' },
-  { name: 'React Testing Library', category: 'Testing', icon: 'check' },
 ];
 
 // ============================================================================

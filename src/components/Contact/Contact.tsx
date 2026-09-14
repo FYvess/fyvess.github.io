@@ -1,11 +1,14 @@
 import { EnvelopeOpen, Phone } from 'phosphor-react';
 import { socialLinks, siteMetadata } from '../../data/content';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import styles from './Contact.module.css';
 
 export function Contact() {
+  const containerRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <section id="contact" className={styles.contact}>
-      <div className={styles.container}>
+      <div className={styles.container} ref={containerRef}>
         <h2>Get In Touch</h2>
         
         <address className={styles.contactInfo}>

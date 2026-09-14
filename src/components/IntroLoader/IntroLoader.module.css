@@ -1,0 +1,137 @@
+.introLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.introLoader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.introContent {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.introLogo {
+  margin-bottom: 4rem;
+}
+
+.introName {
+  font-size: 6rem;
+  font-weight: 800;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease 0.5s forwards;
+}
+
+.introTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  height: 4rem;
+}
+
+.introText {
+  font-size: 2.4rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease 1s forwards;
+}
+
+.introOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 0%, rgba(11, 12, 16, 0.3) 100%);
+  z-index: 1;
+}
+
+.introProgress {
+  width: 300px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease 1.5s forwards;
+}
+
+.introProgressBar {
+  width: 0%;
+  height: 100%;
+  background: var(--gradient-accent);
+  border-radius: 2px;
+  animation: progressLoad 2s ease 2s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progressLoad {
+  to {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .introName {
+    font-size: 4rem;
+  }
+
+  .introText {
+    font-size: 1.5rem;
+  }
+
+  .introProgress {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .introName {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .introText {
+    font-size: 1rem;
+  }
+
+  .introLogo {
+    margin-bottom: 2rem;
+  }
+
+  .introProgress {
+    width: 150px;
+  }
+}

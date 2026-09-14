@@ -4,15 +4,16 @@
   left: 0;
   right: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   z-index: 1000;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--glass-border);
   transition: background var(--transition-medium), border-color var(--transition-medium);
 }
 
-[data-theme='dark'] .navigation {
-  background: rgba(5, 5, 5, 0.8);
+[data-theme='light'] .navigation {
+  background: rgba(245, 245, 250, 0.7);
 }
 
 .container {
@@ -34,16 +35,18 @@
   font-family: var(--font-family);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text);
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  transition: color var(--transition-fast), background-color var(--transition-fast);
+  transition: opacity var(--transition-fast);
 }
 
 .logoButton:hover {
-  background-color: var(--color-accent);
-  color: var(--color-black);
+  opacity: 0.8;
 }
 
 .navLinks {
@@ -61,13 +64,13 @@
   border: none;
   font-family: var(--font-family);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
   cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   position: relative;
-  transition: color var(--transition-fast), background-color var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 .navLink::after {
@@ -77,10 +80,14 @@
   left: 1rem;
   right: 1rem;
   height: 2px;
-  background-color: var(--color-accent);
+  background: var(--gradient-accent);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-text);
 }
 
 .navLink:hover::after {
@@ -107,31 +114,29 @@
 .controlButton {
   background: none;
   border: none;
-  color: var(--color-text);
+  color: var(--color-text-secondary);
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .controlButton:hover {
-  background-color: var(--color-bg-secondary);
+  color: var(--color-accent);
+  background-color: var(--glass-bg-hover);
 }
 
 .controlButton.playing {
   animation: pulse 1.5s ease-in-out infinite;
+  color: var(--color-accent);
 }
 
 @keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 .mobileMenuButton {
@@ -144,10 +149,16 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
   flex-direction: column;
   padding: 1rem 0;
+}
+
+[data-theme='light'] .mobileMenu {
+  background: rgba(245, 245, 250, 0.95);
 }
 
 .mobileMenuLink {
@@ -155,48 +166,37 @@
   border: none;
   font-family: var(--font-family);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
   cursor: pointer;
   padding: 1rem 2rem;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
   text-align: left;
   width: 100%;
 }
 
 .mobileMenuLink:hover {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--glass-bg-hover);
+  color: var(--color-text);
 }
 
 .mobileMenuLink.active {
   color: var(--color-accent);
-  background-color: var(--color-bg-secondary);
+  background-color: var(--glass-bg);
 }
 
-/* Responsive */
-@media (max-width: 767px) {
-  .navigation {
-    padding: 0;
-  }
+@media (max-width: 768px) {
+  .navigation { padding: 0; }
+  .container { padding: 0.75rem 1rem; }
+  .navLinks { display: none; }
+  .controls { margin-left: auto; gap: 0.5rem; }
+  .mobileMenuButton { display: flex; }
+  .mobileMenu { display: flex; }
+}
 
-  .container {
-    padding: 1rem;
-  }
-
-  .navLinks {
-    display: none;
-  }
-
-  .controls {
-    margin-left: auto;
-    gap: 0.5rem;
-  }
-
-  .mobileMenuButton {
-    display: flex;
-  }
-
-  .mobileMenu {
-    display: flex;
-  }
+@media (max-width: 480px) {
+  .container { padding: 0.5rem 0.75rem; }
+  .logoButton { font-size: var(--font-size-lg); padding: 0.25rem; }
+  .controlButton { padding: 0.375rem; }
+  .mobileMenuLink { padding: 0.75rem 1.25rem; }
 }

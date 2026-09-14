@@ -19,18 +19,23 @@ import type { MusicContextValue } from '../types';
 const MusicContext = createContext<MusicContextValue | undefined>(undefined);
 
 export function MusicProvider({ children }: { children: ReactNode }) {
-  const [isPlaying, setIsPlaying] = useLocalStorage<boolean>('musicPlaying', false);
+  const [isPlaying, setIsPlaying] = useLocalStorage<boolean>('musicPlaying', true);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Sync audio element play/pause state when isPlaying changes
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.volume = 0.4;
+  }, []);
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
     if (isPlaying) {
-      // Attempt to play, but handle autoplay blocking gracefully
+      audio.muted = false;
       audio.play().catch(() => {
-        // Browser blocked autoplay (common on first interaction), reset state
+        // Play failed, reset state
         setIsPlaying(false);
       });
     } else {
@@ -49,8 +54,9 @@ export function MusicProvider({ children }: { children: ReactNode }) {
         ref={audioRef}
         src="/assets/music/background.mp3"
         loop
-        preload="none"
-        volume={0.4}
+        autoPlay
+        muted
+        preload="auto"
       />
       {children}
     </MusicContext.Provider>
