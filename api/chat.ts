@@ -36,7 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           contents: [
             { role: 'user', parts: [{ text: SYSTEM_PROMPT }] },
             ...messages.map((m: any) => ({
-              role: m.role === 'user' ? 'user' : 'model',
+              role: m.role === 'assistant' ? 'model' : 'user',
               parts: [{ text: m.content }],
             })),
           ],
@@ -45,6 +45,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     );
 
     const data = await response.json();
+    if (!response.ok) {
+      console.error('Gemini API error:', response.status, data);
+      return res.status(500).json({ error: `API error: ${data.error?.message || 'Unknown'}` });
+    }
+    
     const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I could not process that.';
 
     return res.status(200).json({ reply });
